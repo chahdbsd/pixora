@@ -1,25 +1,18 @@
-package com.pixora.usecase;
+package com.pixora.usecase.service;
 
 import com.pixora.domain.entities.Photo;
 import com.pixora.domain.repository.PhotoRepository;
 
 import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
 
 public class RechercherPhotosUseCase {
-
     private final PhotoRepository photoRepository;
 
     public RechercherPhotosUseCase(PhotoRepository photoRepository) {
-        this.photoRepository = Objects.requireNonNull(photoRepository);
+        this.photoRepository = photoRepository;
     }
 
-    public List<Photo> byOwner(UUID ownerId) {
-        return photoRepository.findByOwnerId(ownerId);
-    }
-
-    public List<Photo> byAlbum(UUID albumId) {
+    public List<Photo> execute(Long albumId) {
         return photoRepository.findByAlbumId(albumId);
     }
 }

@@ -1,19 +1,21 @@
-package com.pixora.domain.entities;
+package com.pixora.adapters.infrastructure.persistence.entity;
 
+import jakarta.persistence.*;
 import java.time.Instant;
 
-public class Album {
+@Entity
+@Table(name = "albums")
+public class AlbumEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private Long ownerUserId;
     private String titre;
     private Instant createdAt;
 
-    public Album(Long id, Long ownerUserId, String titre, Instant createdAt) {
-        this.id = id;
-        this.ownerUserId = ownerUserId;
-        this.titre = titre;
-        this.createdAt = createdAt;
-    }
+    public AlbumEntity() {}
 
     public Long getId() { return id; }
     public Long getOwnerUserId() { return ownerUserId; }

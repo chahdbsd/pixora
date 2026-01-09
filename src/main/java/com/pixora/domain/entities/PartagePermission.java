@@ -1,32 +1,31 @@
 package com.pixora.domain.entities;
 
 import java.time.Instant;
-import java.util.Objects;
-import java.util.UUID;
 
 public class PartagePermission {
-    public enum Permission { READ, WRITE }
+    private Long id;
+    private Long albumId;
+    private Long grantedToUserId;
+    private String permission; // "READ" | "WRITE"
+    private Instant createdAt;
 
-    private final UUID id;
-    private final UUID albumId;
-    private final UUID ownerId;
-    private final UUID targetUserId; // user avec qui on partage
-    private final Permission permission;
-    private final Instant createdAt;
-
-    public PartagePermission(UUID id, UUID albumId, UUID ownerId, UUID targetUserId, Permission permission, Instant createdAt) {
-        this.id = Objects.requireNonNull(id);
-        this.albumId = Objects.requireNonNull(albumId);
-        this.ownerId = Objects.requireNonNull(ownerId);
-        this.targetUserId = Objects.requireNonNull(targetUserId);
-        this.permission = Objects.requireNonNull(permission);
-        this.createdAt = Objects.requireNonNull(createdAt);
+    public PartagePermission(Long id, Long albumId, Long grantedToUserId, String permission, Instant createdAt) {
+        this.id = id;
+        this.albumId = albumId;
+        this.grantedToUserId = grantedToUserId;
+        this.permission = permission;
+        this.createdAt = createdAt;
     }
 
-    public UUID getId() { return id; }
-    public UUID getAlbumId() { return albumId; }
-    public UUID getOwnerId() { return ownerId; }
-    public UUID getTargetUserId() { return targetUserId; }
-    public Permission getPermission() { return permission; }
+    public Long getId() { return id; }
+    public Long getAlbumId() { return albumId; }
+    public Long getGrantedToUserId() { return grantedToUserId; }
+    public String getPermission() { return permission; }
     public Instant getCreatedAt() { return createdAt; }
+
+    public void setId(Long id) { this.id = id; }
+    public void setAlbumId(Long albumId) { this.albumId = albumId; }
+    public void setGrantedToUserId(Long grantedToUserId) { this.grantedToUserId = grantedToUserId; }
+    public void setPermission(String permission) { this.permission = permission; }
+    public void setCreatedAt(Instant createdAt) { this.createdAt = createdAt; }
 }

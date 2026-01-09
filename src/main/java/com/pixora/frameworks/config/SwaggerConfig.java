@@ -1,0 +1,19 @@
+package com.pixora.frameworks.config;
+
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Info;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class SwaggerConfig {
+
+    @Bean
+    OpenAPI pixoraApi() {
+        return new OpenAPI()
+                .info(new Info()
+                        .title("Pixora API")
+                        .description("API de gestion des albums et photos")
+                        .version("1.0"));
+    }
+}

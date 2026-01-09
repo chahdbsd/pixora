@@ -1,21 +1,22 @@
-package com.pixora.domain.entities;
+package com.pixora.adapters.infrastructure.persistence.entity;
 
+import jakarta.persistence.*;
 import java.time.Instant;
 
-public class Photo {
+@Entity
+@Table(name = "photos")
+public class PhotoEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private Long albumId;
     private Long uploaderUserId;
     private String url;
     private Instant uploadedAt;
 
-    public Photo(Long id, Long albumId, Long uploaderUserId, String url, Instant uploadedAt) {
-        this.id = id;
-        this.albumId = albumId;
-        this.uploaderUserId = uploaderUserId;
-        this.url = url;
-        this.uploadedAt = uploadedAt;
-    }
+    public PhotoEntity() {}
 
     public Long getId() { return id; }
     public Long getAlbumId() { return albumId; }

@@ -1,24 +1,27 @@
 package com.pixora.domain.entities;
 
 import java.time.Instant;
-import java.util.Objects;
-import java.util.UUID;
 
 public class Favori {
-    private final UUID id;
-    private final UUID userId;
-    private final UUID photoId;
-    private final Instant createdAt;
+    private Long id;
+    private Long userId;
+    private Long photoId;
+    private Instant createdAt;
 
-    public Favori(UUID id, UUID userId, UUID photoId, Instant createdAt) {
-        this.id = Objects.requireNonNull(id);
-        this.userId = Objects.requireNonNull(userId);
-        this.photoId = Objects.requireNonNull(photoId);
-        this.createdAt = Objects.requireNonNull(createdAt);
+    public Favori(Long id, Long userId, Long photoId, Instant createdAt) {
+        this.id = id;
+        this.userId = userId;
+        this.photoId = photoId;
+        this.createdAt = createdAt;
     }
 
-    public UUID getId() { return id; }
-    public UUID getUserId() { return userId; }
-    public UUID getPhotoId() { return photoId; }
+    public Long getId() { return id; }
+    public Long getUserId() { return userId; }
+    public Long getPhotoId() { return photoId; }
     public Instant getCreatedAt() { return createdAt; }
+
+    public void setId(Long id) { this.id = id; }
+    public void setUserId(Long userId) { this.userId = userId; }
+    public void setPhotoId(Long photoId) { this.photoId = photoId; }
+    public void setCreatedAt(Instant createdAt) { this.createdAt = createdAt; }
 }

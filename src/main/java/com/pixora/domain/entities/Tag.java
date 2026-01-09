@@ -1,22 +1,17 @@
 package com.pixora.domain.entities;
 
-import java.util.Objects;
-import java.util.UUID;
-
 public class Tag {
-    private final UUID id;
-    private final UUID ownerId;
-    private String label;
+    private Long id;
+    private String nom;
 
-    public Tag(UUID id, UUID ownerId, String label) {
-        this.id = Objects.requireNonNull(id);
-        this.ownerId = Objects.requireNonNull(ownerId);
-        this.label = Objects.requireNonNull(label);
+    public Tag(Long id, String nom) {
+        this.id = id;
+        this.nom = nom;
     }
 
-    public UUID getId() { return id; }
-    public UUID getOwnerId() { return ownerId; }
-    public String getLabel() { return label; }
+    public Long getId() { return id; }
+    public String getNom() { return nom; }
 
-    public void rename(String newLabel) { this.label = Objects.requireNonNull(newLabel); }
+    public void setId(Long id) { this.id = id; }
+    public void setNom(String nom) { this.nom = nom; }
 }
