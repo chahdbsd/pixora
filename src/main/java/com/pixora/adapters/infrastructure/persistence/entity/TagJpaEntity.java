@@ -1,18 +1,16 @@
-package com.pixora.domain.entities;
+package com.pixora.adapters.infrastructure.persistence.entity;
 
-public class Tag {
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "tags")
+public class TagJpaEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String label;
-
-    public Tag(Long id, String label) {
-        this.id = id;
-        this.label = label;
-    }
-
-    public Tag(String label) {
-        this.label = label;
-    }
 
     public Long getId() {
         return id;

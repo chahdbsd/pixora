@@ -13,3 +13,4 @@ public interface FavoriRepository {
     void delete(Long id);
     void deleteByUserIdAndPhotoId(Long userId, Long photoId);
 }
+

@@ -6,9 +6,14 @@ import java.util.List;
 import java.util.Optional;
 
 public interface TagRepository {
+
     Tag save(Tag tag);
+
     Optional<Tag> findById(Long id);
-    Optional<Tag> findByNom(String nom);
+
+    Optional<Tag> findByLabel(String label);
+
     List<Tag> findAll();
+
     void delete(Long id);
 }
