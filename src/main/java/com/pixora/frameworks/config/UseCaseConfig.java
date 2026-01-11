@@ -44,6 +44,7 @@ import com.pixora.usecase.mapper.TagUseCaseMapper;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import com.pixora.usecase.port.out.PhotoEventPublisher; // à ajouter en haut
 
 @Configuration
 public class UseCaseConfig {
@@ -130,12 +131,15 @@ public class UseCaseConfig {
         return new RechercherPhotosUseCase(repo);
     }
 
+
     @Bean
     public ImporterPhotoUseCase importerPhotoUseCase(
-            PhotoRepository repo
+            PhotoRepository repo,
+            PhotoEventPublisher photoEventPublisher
     ) {
-        return new ImporterPhotoUseCase(repo);
+        return new ImporterPhotoUseCase(repo, photoEventPublisher);
     }
+
 
     @Bean
     public SupprimerPhotoUseCase supprimerPhotoUseCase(
@@ -275,4 +279,11 @@ public class UseCaseConfig {
         return new TagUseCaseMapper();
     }
 
+    @Bean
+    public HandlePhotoUploadedEventUseCase handlePhotoUploadedEventUseCase() {
+        return new HandlePhotoUploadedEventUseCase();
+    }
+
+
 }
+
