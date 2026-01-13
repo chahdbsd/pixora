@@ -3,9 +3,15 @@ package com.pixora.frameworks.messaging;
 import com.pixora.usecase.event.PhotoUploadedEvent;
 import com.pixora.usecase.port.out.PhotoEventPublisher;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
+@ConditionalOnProperty(
+        name = "KAFKA_ENABLED",
+        havingValue = "true",
+        matchIfMissing = false
+)
 @Component
 public class PhotoUploadedProducer implements PhotoEventPublisher {
 
