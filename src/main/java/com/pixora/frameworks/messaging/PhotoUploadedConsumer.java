@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @ConditionalOnProperty(
         name = "KAFKA_ENABLED",
         havingValue = "true",
-        matchIfMissing = true
+        matchIfMissing = false
 )
 @Component
 public class PhotoUploadedConsumer {
